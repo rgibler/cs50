@@ -1,4 +1,4 @@
-//this program scans in a height and prints two opposing # pyramids
+//this program scans in a height and prints two opposing "#" pyramids separated by two spaces
 
 #include<stdio.h>
 
@@ -6,7 +6,7 @@ int main(void)
  {
          int height = -1;
          int line, column;
- 
+	 int i =1; 
          while ( height <= -1 || height >= 24 )
          {
                  printf("Enter a height for the pyramid: ");
@@ -22,23 +22,21 @@ int main(void)
                          {
                                  printf("#");
                          }
-			 if((column > height) && (column <= height +1))
+			 else if((column > height) && (column <= height +1))
 			 {
 			 	printf("  ");
 			 }
 		 	 if ((column > height +1) && (column <= (height + line +1)))
 			 {
 				
-				for( int i =1; i <= line; i++)
+				do	
 			 	{	
 					printf("#");
+					i++;
 				}
+				while(i<=line);
 			 }
 			 if (column < height + 1 - line)		 
-			 {
-				printf(" ");
-			 }
-			 if (column >= height + line + 2)
 			 {
 				printf(" ");
 			 }

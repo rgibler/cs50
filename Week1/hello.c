@@ -1,3 +1,5 @@
+//This program prints Hello world on the terminal
+
 #include <stdio.h>
 
 int main(void)

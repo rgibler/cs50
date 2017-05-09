@@ -2,4 +2,8 @@
 
 This is the code I have created while progressing through the CS50 class.
 
-As of right now all programs work correctly except for mario2 which is supposed to create two halves of a pyramid separated by two spaces with sizes dependent upon user input.
+All of the Week one assignments have been successfully program except for the credit card problem!
+	including : hello, water, both mario problem sets, and greedy
+
+
+Now beginning work on credit and then I will start the Week two problems
