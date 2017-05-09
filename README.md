@@ -6,4 +6,6 @@ All of the Week one assignments have been successfully program except for the cr
 	including : hello, water, both mario problem sets, and greedy
 
 
-Now beginning work on credit and then I will start the Week two problems
+The code used for the "credit" problem is buggy and unfinished. I will go back to the problem later.
+
+Now beginning work on the Week two problems
