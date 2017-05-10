@@ -18,7 +18,7 @@ int main(void)
 //fgets is a function that allows me to scan in the username
 //from terminal with spaces
 	fgets(name, sizeof(name), stdin);
-//makes first letter uppercase if not allready and prints it
+//makes first letter uppercase if not already and prints it
 	printf("%c", toupper(name[0]));
 // looping through word to find the letters that follow spaces
 	for (int i = 0, length = strlen(name); i < length; i++)
