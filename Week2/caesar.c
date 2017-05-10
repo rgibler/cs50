@@ -32,17 +32,25 @@ int main(int argc, char *argv[])
 		printf("encrypted message is: ");
 		for (int i =0,len = strlen(message); i<len;i++)
 		{
-			if ((message[i] + Key > 'z') && (message[i] < 'z'))
+			if ((message[i] + Key > 'z') && (message[i] <= 'z'))
 			{
-				printf("%c", ((((message[i] - 97)+Key)%26)+97));
+				printf("%c", (message[i] + Key -26));
 			}
-			else if((message[i] + Key > 'Z') && (message[i] < 'Z'))
+			else if((message[i] + Key > 'Z') && (message[i] <= 'Z'))
 			{
-				printf("%c", ((((message[i] - 65)+Key)%26)+65));
+				printf("%c", (message[i] + Key -26));
+			}
+			else if((message[i] <= 'z') && (message[i] >= 'a') && ((message[i] + Key <= 'z'))) 
+			{
+				printf("%c", message[i] + Key);
+			}
+			else if ((message[i] <= 'Z') && (message[i] >= 'A') && (message[i] + Key <= 'Z'))
+			{
+				printf("%c", message[i] + Key);
 			}
 			else
 			{
-				printf("%c", message[i] + Key);
+				printf("%c", message[i]);
 			}
 		}
 	}
