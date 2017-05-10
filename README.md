@@ -2,7 +2,7 @@
 
 This is the code I have created while progressing through the CS50 class.
 
-Week1:
+Problem Set 1: C
 
 	hello complete, 
 	water complete,
@@ -12,9 +12,10 @@ Week1:
 	credit is still buggy will come back to it
 
 
-Week2:
+Problem Set 2: Crypto
 
 	initials complete,
 	caesar complete,
-	now starting vigenere
+	vigenere complete,
+	Now starting crack
 

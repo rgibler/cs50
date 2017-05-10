@@ -5,7 +5,7 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
-
+#include<ctype.h>
 
 int main(int argc, char *argv[])
 {
@@ -21,18 +21,29 @@ int main(int argc, char *argv[])
 	printf("missing or improper number of cmd line arguments\n");
 		return 1;
 	}
-
 	else
 	{
 
 		//converting cmdline arg to an array of chars
-//		Key=atoi(argv[1]);
 		strcpy(Key, argv[1]);
+		lenK=strlen(Key);
+		for (int step = 0; step < lenK; step++)
+		{
+			Key[step]=tolower(Key[step]);
+		}
+		for (int k = 0; k< lenK; k++)
+		{
+			if ((Key[k] < 95) || (Key[k] > 122))
+			{
+				printf("Key must be a sequence of letters\n");
+				return 1;
+			}
+		}
 		printf("Enter message to be encrypted: ");
 		fgets(message, sizeof(message), stdin);
 		printf("key is %s message is %s", Key, message);
 		printf("encrypted message is: ");
-		for (int i =0,len = strlen(message), lenK=strlen(Key); i<len;i++)
+		for (int i =0,lenM = strlen(message); i<lenM;i++)
 		{
 			tempKey = Key[i%lenK];
 //			printf("%d", tempKey);
@@ -41,9 +52,9 @@ int main(int argc, char *argv[])
 				tempKey=tempKey - 97;
 				printf("%c", (message[i] + tempKey - 26));
 			}
-			else if((message[i] + tempKey -65 > 'Z') && (message[i] <= 'Z'))
+			else if((message[i] + tempKey -97 > 'Z') && (message[i] <= 'Z'))
 			{
-				tempKey= tempKey - 65;
+				tempKey= tempKey - 97;
 				printf("%c", (message[i] + tempKey -26));
 			}
 			else if((message[i] <= 'z') && (message[i] >= 'a') && ((message[i] + tempKey -97 <= 'z'))) 
@@ -51,9 +62,9 @@ int main(int argc, char *argv[])
 				tempKey = tempKey -97;
 				printf("%c", message[i] + tempKey);
 			}
-			else if ((message[i] <= 'Z') && (message[i] >= 'A') && (message[i] + tempKey -65 <= 'Z'))
+			else if ((message[i] <= 'Z') && (message[i] >= 'A') && (message[i] + tempKey -97 <= 'Z'))
 			{
-				tempKey = tempKey - 65;
+				tempKey = tempKey - 97;
 				printf("%c", message[i] + tempKey);
 			}
 			else
@@ -63,4 +74,5 @@ int main(int argc, char *argv[])
 		}
 	}
 	printf("\n");
+	return 0;
 }
