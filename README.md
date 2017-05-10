@@ -8,4 +8,9 @@ All of the Week one assignments have been successfully program except for the cr
 
 The code used for the "credit" problem is buggy and unfinished. I will go back to the problem later.
 
-Now beginning work on the Week two problems
+Week2
+
+	initials complete,
+	caesar still has bugs when key + message > 'z' or 'Z'
+	hopefully will have bug fixed by tomorrow
+
