@@ -23,12 +23,15 @@ int main(void)
 	length = strlen(cstring);
 	printf("The credit card number is %s, with a length of %d\n", cstring, length);
 	
-	i = length -2;
-	do 
+	for (i = length -1; i>0; i=i-2) 
 	{
-		temp_val =(cstring[i]-48) * 2 + temp_val;
-		if (((cstring[i]-48) *2) >= 10)
+		if (((cstring[i]-48) *2) < 10)
 		{
+			temp_val =(cstring[i]-48) * 2 + temp_val;
+		}
+		else if (((cstring[i]-48) *2) >= 10)
+		{
+
 			sprintf(temp_str, "%d", ((cstring[i])-48)*2);
 			for(int j; j<2;j++)
 			{
@@ -39,8 +42,7 @@ int main(void)
 			
 		}	
 		printf("%d--%d\n", cstring[i]-48, temp_val);
-		i=i-2;
-	}while(i>0);
+	}
 //	for (int k = length; k > 0; k=k-2)
 //	{
 //		temp_val = cstring[k] -48 + temp_val;
