@@ -10,10 +10,8 @@
 int main(int argc, char *argv[])
 {
 
-	char charKey[2];
 	int Key=0;
 	char message[200];
-	char temp[100];
 	int len =0;
 	
 	//prints error if more or less than 2 cmdline args
