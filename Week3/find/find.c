@@ -7,16 +7,16 @@
  * where needle is the value to find in a haystack of values
  */
        
-#include <cs50.h>
+//#include <cs50.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "helpers.h"
+//#include "helpers.h"
 
 // maximum amount of hay
 const int MAX = 65536;
 
-int main(int argc, string argv[])
+int main(int argc, char *argv[])
 {
     // ensure proper usage
     if (argc != 2)
@@ -30,13 +30,14 @@ int main(int argc, string argv[])
 
     // fill haystack
     int size;
+    int straw;
     int haystack[MAX];
     for (size = 0; size < MAX; size++)
     {
         // wait for hay until EOF
         printf("\nhaystack[%i] = ", size);
-        int straw = get_int();
-        if (straw == INT_MAX)
+        scanf("%d", &straw);
+        if (straw == MAX)
         {
             break;
         }
@@ -47,7 +48,8 @@ int main(int argc, string argv[])
     printf("\n");
 
     // sort the haystack
-    sort(haystack, size);
+//    sort(haystack, size);
+      qsort(haystack, sizeof(haystack)/sizeof(*haystack), sizeof(*haystack), straw);
 
     // try to find needle in haystack
     if (search(needle, haystack, size))

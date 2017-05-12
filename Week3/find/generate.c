@@ -21,17 +21,17 @@
 
 int main(int argc, char *argv[])
 {
-    // TODO: comment me
+    // If the user does not have the proper number of agruments they are probided with the program usage
     if (argc != 2 && argc != 3)
     {
         printf("Usage: ./generate n [s]\n");
         return 1;
     }
 
-    // TODO: comment me
+    // converts the second command line arg to an integer
     int n = atoi(argv[1]);
 
-    // TODO: comment me
+    // if there is a third argument use it to seed drang48()
     if (argc == 3)
     {
         srand48((long) atoi(argv[2]));
@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
         srand48((long) time(NULL));
     }
 
-    // TODO: comment me
+    // Print n random integers that are with in the predefined limit
     for (int i = 0; i < n; i++)
     {
         printf("%i\n", (int) (drand48() * LIMIT));
