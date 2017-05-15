@@ -21,19 +21,13 @@ Problem Set 2: Crypto
 
 Problem Set 3: Game of Fifteen
 
-	I dont have access to the cs50 header so i will need to re-write 
-	to code in the files do that they are useable to a non paying cs50
-	student before I will be able to complete the assignment.
-
-	Currently re-writing find.c and trying to figure out how to 
-	impliment qsort() in place of the cs50 sort() function.
-
-	I will also need to find a suitable replacement for the search
-	function.
+	Currently working on find (less comfortable) 
+	created separate sort and search files which work correctly however,
+	helpers.c is unable to find the need but the sorting works.
+	
+	fifteen.c will be started after debugging of find is complete
 
 Problem Set 4: Forensics
 
-	Will begin working on this set after watching the lecture. Hopefully
-	the code will not need to be re-written to the same extent as
-	Problem Set 3.
+	Unstarted.
 	
