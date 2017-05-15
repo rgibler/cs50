@@ -21,9 +21,8 @@ Problem Set 2: Crypto
 
 Problem Set 3: Game of Fifteen
 
-	Currently working on find (less comfortable) 
-	created separate sort and search files which work correctly however,
-	helpers.c is unable to find the need but the sorting works.
+	find works except it does not stop reading in files when it hits
+	EOF.
 	
 	fifteen.c will be started after debugging of find is complete
 
