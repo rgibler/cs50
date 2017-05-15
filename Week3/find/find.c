@@ -10,11 +10,13 @@
 //#include <cs50.h>
 #include <stdio.h>
 #include <stdlib.h>
-
-//#include "helpers.h"
-
+#include "helpers.h"
+#include<stdbool.h>
 // maximum amount of hay
 const int MAX = 65536;
+
+void sort(int values[], int n);
+bool search(int value, int array[], int max);
 
 int main(int argc, char *argv[])
 {
@@ -37,7 +39,7 @@ int main(int argc, char *argv[])
         // wait for hay until EOF
         printf("\nhaystack[%i] = ", size);
         scanf("%d", &straw);
-        if (straw == MAX)
+        if (straw == 12345)
         {
             break;
         }
@@ -48,10 +50,11 @@ int main(int argc, char *argv[])
     printf("\n");
 
     // sort the haystack
-//    sort(haystack, size);
-      qsort(haystack, sizeof(haystack)/sizeof(*haystack), sizeof(*haystack), straw);
+    sort(haystack, size);
+//sort function is written in help.c
 
     // try to find needle in haystack
+    //search function is written in help.c
     if (search(needle, haystack, size))
     {
         printf("\nFound needle in haystack!\n\n");
