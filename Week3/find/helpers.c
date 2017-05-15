@@ -13,19 +13,13 @@
  */
 bool search(int needle, int haystack[], int size)
 {
-//       int array[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-//        int value = 0;
-//        int max = sizeof(array)/sizeof(int);
 	int max = size;
         int min = 0;
         int mid = (min + max)/2;
-//        printf("Input value you wih to search for: ");
-//        scanf("%d", &value);
-//        printf("\n");
+
         if (needle == haystack[mid])
         {
-//                printf("value %d was found in the %d index of the array\n", value, mid+1);
-                return 0;
+                return true;
         }
         else{
                 do
@@ -33,23 +27,23 @@ bool search(int needle, int haystack[], int size)
                         if (needle > haystack[mid])
                         {
                                 min=mid;
-//                                printf("New min is %d\n", min);
+                                printf("New min is %d\n", min);
                                 mid = (min+max)/2;
                         }
                         else if (needle < haystack[mid])
                         {
                                 max=mid;
- //                               printf("new maximum is %d\n", max);
+                                printf("new maximum is %d\n", max);
                                 mid= (min+max)/2;
                         }
                         else
                         {
-//                                printf("value %d is in the %d index of the array\n", value, mid+1);
-                                return 0;
+                                printf("value %d is in the %d index of the array\n", needle, mid+1);
+                                return true;
                         }
                 }while(needle != haystack[max]);
         }
-        return 0;        
+        return true;        
 }
 
 /**

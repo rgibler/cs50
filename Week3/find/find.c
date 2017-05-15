@@ -39,7 +39,8 @@ int main(int argc, char *argv[])
         // wait for hay until EOF
         printf("\nhaystack[%i] = ", size);
         scanf("%d", &straw);
-        if (straw == 12345)
+        if (straw == EOF || straw == 12345)
+
         {
             break;
         }
