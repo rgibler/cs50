@@ -14,10 +14,11 @@
  
 #define _XOPEN_SOURCE 500
 
-#include <cs50.h>
+//#include <cs50.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdbool.h>
 
 // constants
 #define DIM_MIN 3
@@ -29,6 +30,9 @@ int board[DIM_MAX][DIM_MAX];
 // dimensions
 int d;
 
+// holder for space
+int space=93;
+
 // prototypes
 void clear(void);
 void greet(void);
@@ -37,7 +41,7 @@ void draw(void);
 bool move(int tile);
 bool won(void);
 
-int main(int argc, string argv[])
+int main(int argc, char *argv[])
 {
     // ensure proper usage
     if (argc != 2)
@@ -82,7 +86,7 @@ int main(int argc, string argv[])
         {
             for (int j = 0; j < d; j++)
             {
-                fprintf(file, "%i", board[i][j]);
+                fprintf(file, "%d", board[i][j]);
                 if (j < d - 1)
                 {
                     fprintf(file, "|");
@@ -101,7 +105,8 @@ int main(int argc, string argv[])
 
         // prompt for move
         printf("Tile to move: ");
-        int tile = get_int();
+        int tile;
+	scanf("%d", &tile);
         
         // quit if user inputs 0 (for testing)
         if (tile == 0)
@@ -110,7 +115,7 @@ int main(int argc, string argv[])
         }
 
         // log move (for testing)
-        fprintf(file, "%i\n", tile);
+        fprintf(file, "%d\n", tile);
         fflush(file);
 
         // move if possible, else report illegality
@@ -147,7 +152,7 @@ void greet(void)
 {
     clear();
     printf("WELCOME TO GAME OF FIFTEEN\n");
-    usleep(2000000);
+    usleep(200000);
 }
 
 /**
@@ -156,7 +161,22 @@ void greet(void)
  */
 void init(void)
 {
-    // TODO
+	int num = (d*d) - 1;
+	for (int i =0; i < d; i++)
+	{
+		for (int j = 0; j<d; j++)
+		{
+			board[i][j] = num;
+			num = num - 1;
+			
+		}
+	}
+	if (d%2 ==0)
+	{
+		board[d-1][d-3]=1;
+		board[d-1][d-2]=2;
+	}
+	board[d-1][d-1]=93;
 }
 
 /**
@@ -164,7 +184,25 @@ void init(void)
  */
 void draw(void)
 {
-    // TODO
+	for (int i=0;i<d;i++)
+ 	{
+		for(int j=0;j<d;j++)
+		{
+			if(j == 0)
+			{
+				printf("*");
+			}
+			if(board[i][j] == space)
+			{
+				printf(" _ ");
+			}
+			else
+			{
+				printf("%2d ", board[i][j]);
+			}
+		}
+	printf("*\n");
+	}
 }
 
 /**
@@ -172,9 +210,44 @@ void draw(void)
  * returns false. 
  */
 bool move(int tile)
-{
-    // TODO
-    return false;
+{	
+	int holder = 0;
+
+	for (int i=0;i<d;i++)
+	{
+		for (int j=0;j<d;j++)
+		{
+			if ((board[i][j] == tile) && (board[i-1][j] == space))
+			{	
+				holder = board[i][j];
+				board[i][j] = space;
+				board[i-1][j] = holder;
+				return true;
+			}
+			if ((board[i][j] == tile) && (board[i][j-1] == space))
+			{
+				holder = board[i][j];
+				board[i][j] = space;
+				board[i][j-1] = holder;
+				return true;
+			}
+			if ((board[i][j] == tile) && (board[i+1][j] == space))
+			{
+				holder = board[i][j];
+				board[i][j] = space;
+				board[i+1][j] = holder;
+				return true;	
+			}
+			if ((board[i][j] == tile) && (board[i][j+1] == space))
+			{
+				holder = board[i][j];
+				board[i][j] = space;
+				board[i][j+1] = holder;
+				return true;
+			}
+		}
+	}
+	return false;
 }
 
 /**
@@ -183,6 +256,32 @@ bool move(int tile)
  */
 bool won(void)
 {
-    // TODO
-    return false;
+	if ((board[0][0] == 1)	&& (board[0][1] == 2))
+	{
+		int check = 1;
+		for (int i=0;i<d;i++)
+		{
+			for (int j=0;j<d;j++)
+			{
+				if((board[i][j] == check) && (board[i][j] != space)) 
+				{
+					check= check + 1;
+				}
+				else if ((board[i][j] != check)	&& (board[d-1][d-1] != space))
+				{
+					return false;
+				}
+				else if ((board[d-1][d-2] == d*d-2) && (board[d-1][d-1] == space))
+				{
+					return true;
+				}
+			}
+		}
+	}
+	else
+	{
+		return false;
+	}
+	return false;
 }
+

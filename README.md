@@ -23,8 +23,11 @@ Problem Set 3: Game of Fifteen
 
 	find works except it does not stop reading in files when it hits
 	EOF.
+
+	NEED TO BEGIN WORKING ON find (more comfortable) search and sort
+	algorithms.
 	
-	fifteen.c will be started after debugging of find is complete
+	fifteen.c complete
 
 Problem Set 4: Forensics
 
