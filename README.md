@@ -24,12 +24,12 @@ Problem Set 3: Game of Fifteen
 	find works except it does not stop reading in files when it hits
 	EOF.
 
-	NEED TO BEGIN WORKING ON find (more comfortable) search and sort
-	algorithms.
+	Will come back to find and find (more comfortable) later
 	
 	fifteen.c complete
 
 Problem Set 4: Forensics
 
-	Unstarted.
+	whodunit complete,
+	will being working on resize
 	
