@@ -1,14 +1,43 @@
-1.  stdint.h provides type definitions which allow the programmer to define exact width 
-    integer types and minimum and maximum allowable integer values.
+1.  stdint.h provides type definitions which allow the programmer to
+    define exact width integer types and minimum and maximum allowable
+    integer values.
 
-2.  TODO
-3.  TODO
-4.  TODO
-5.  TODO
-6.  TODO
-7.  TODO
-8.  TODO
+2.  this allows the programmer to the be know that the integers they
+    are using with be of the specified size in bytes. Without using these 
+    integer type definition there is no guarantee that the integers will
+    the necessary sizeof 8 bits, 16 bits, or 32 bits.
+
+3.  BYTE is 1 byte (8 bits) DWORD is 4 bytes (32 bits), LONG is 4 bytes 
+    (32 bits), and WORD is 2 bytes (16 bits).
+
+4.  The first two bytes of a BMP file define the bfType.
+ 
+5.  bfSize includes the padding when taking the size of the image in bytes
+    into account and bisize solely looks at the size of the image without 
+    taking padding into account.
+
+6.  A negative biHeight means that the image originates in the lower left 
+    coner of the image. A positive biHeight denotes that the image 
+    originates in the upperleft corner.
+
+7.  The biBitCount field of BITMANINFOHEADER defines the number of bits 
+    each pixel is given and as a result the variety of color the image
+    will have.
+
+8.  NULL will be returned if the program is unable to open and read the
+    input file or unable to open or write to the output file.
+
 9.  TODO
-10. TODO
-11. TODO
-12. TODO
+
+10. The number of bytes per line must be divisible by 4. If there are 
+    only three pixels per line and three bits per pixel then that gives
+    us a total of 9 bytes per line. To make the number of bytes per line 
+    divisible by 4, three more byte of padding must be added so the total 
+    bytes per line will be 12.
+
+11. fseek skips over a specified field when scanning through the input file.
+    In the case of copy.c the fseek fuction is skipping over padding as the 
+    input file is scanned.
+
+12.  SEEK_CUR is a constant which is used the specify the offset between 
+     scanned values in the input file?
